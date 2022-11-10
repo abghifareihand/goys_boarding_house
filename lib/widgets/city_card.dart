@@ -22,7 +22,7 @@ class CityCard extends StatelessWidget {
             Stack(
               children: [
                 Image.asset(
-                  city!.imageUrl ?? '',
+                  city!.imageUrl!,
                   width: 120,
                   height: 102,
                   fit: BoxFit.cover,

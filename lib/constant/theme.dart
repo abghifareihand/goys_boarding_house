@@ -7,6 +7,7 @@ const Color blackColor = Color(0xff000000);
 const Color whiteColor = Color(0xffFFFFFF);
 const Color greyColor = Color(0xff82868E);
 const Color greycardColor = Color(0xffF6F7F8);
+const Color greynavColor = Color(0xffF6F7F8);
 
 double edge = 24;
 double defaultMargin = 24.0;

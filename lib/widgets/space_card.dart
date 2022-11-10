@@ -21,7 +21,7 @@ class SpaceCard extends StatelessWidget {
             child: Stack(
               children: [
                 Image.asset(
-                  space!.imageUrl ?? '',
+                  space!.imageUrl!,
                 ),
                 Align(
                   alignment: Alignment.topRight,
