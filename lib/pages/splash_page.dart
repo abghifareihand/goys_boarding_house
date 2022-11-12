@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:goys_boarding_house/constant/theme.dart';
 import 'package:goys_boarding_house/pages/home_page.dart';
+import 'package:goys_boarding_house/widgets/bottom_navbar.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
@@ -8,6 +9,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: whiteColor,
       body: SafeArea(
         child: Stack(
           children: [
@@ -69,7 +71,7 @@ class SplashPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => HomePage(),
+                            builder: (context) => BottomNavbar(),
                           ),
                         );
                       },
