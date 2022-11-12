@@ -7,10 +7,10 @@ Favorite Page Resto | Detail Page Kos | Desc Resto
 :---------:|:----------:|:-----------:|
 <img src="https://i.ibb.co/5MqBvBQ/fav-resto.png" width=300/> | <img src="https://i.ibb.co/x7dwyyQ/detail-kos.png" width=300/> | <img src="https://i.ibb.co/HT9BGYm/desc-resto.png" width=300/> |
 
+<br>
 
 ### Demo App
-
-<img src="https://i.ibb.co/VBSPq5v/demo-app.gif" width=300/>
+<img src="assets/demo_app.gif" width=300/>
 
 <br>
 
