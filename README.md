@@ -1,16 +1,16 @@
-# goys_boarding_house
+## Goys Boarding House
+Splash Page | Home Page | Detail Page Resto
+:---------:|:----------:|:-----------:|
+<img src="https://i.ibb.co/f2GSRqT/Screenshot-1668247108.png" width="300"/> | <img src="https://i.ibb.co/wBvcwct/home.png" width=300/> | <img src="https://i.ibb.co/jV71cqn/detail-resto.png" width=300/> |
 
-A new Flutter project.
+Favorite Page Resto | Detail Page Kos | Demo App
+:---------:|:----------:|:-----------:|
+<img src="https://i.ibb.co/5MqBvBQ/fav-resto.png" width=300/> | <img src="https://i.ibb.co/x7dwyyQ/detail-kos.png" width=300/> | <img src="https://i.ibb.co/VBSPq5v/demo-app.gif" width=300/> |
 
-## Getting Started
+<br>
 
-This project is a starting point for a Flutter application.
+### Technology
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- State Management Provider
+- MVVM Architecture
+- Database Sqflite
