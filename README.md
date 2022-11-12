@@ -10,7 +10,7 @@ Favorite Page Resto | Detail Page Kos | Desc Resto
 <br>
 
 ### Demo App
-<img src="assets/demo_app.gif" width=200/>
+<img src="assets/demo_app.gif" width="200"/>
 
 <br>
 
