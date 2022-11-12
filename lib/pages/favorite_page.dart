@@ -41,15 +41,25 @@ class FavoritePage extends StatelessWidget {
           ),
           Consumer<DatabaseProvider>(
             builder: (context, provider, child) {
-              return ListView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: provider.favorite.length,
-                itemBuilder: (context, index) {
-                  return RestaurantFavoriteCard(
-                      restaurant: provider.favorite[index]);
-                },
-              );
+              final data = provider.favorite;
+              if (provider.state == ResultState.loading) {
+                return const Center(
+                  child: CircularProgressIndicator(color: purpleColor),
+                );
+              } else if (provider.state == ResultState.error) {
+                return const Center(
+                  child: Text('Empty Data Favorite'),
+                );
+              } else {
+                return ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: data.length,
+                  itemBuilder: (context, index) {
+                    return RestaurantFavoriteCard(restaurant: data[index]);
+                  },
+                );
+              }
             },
           ),
           SizedBox(

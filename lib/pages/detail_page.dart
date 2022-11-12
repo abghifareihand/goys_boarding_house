@@ -5,13 +5,19 @@ import 'package:goys_boarding_house/pages/error_page.dart';
 import 'package:goys_boarding_house/widgets/facility_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends StatefulWidget {
   final Space space;
   const DetailPage({
     super.key,
     required this.space,
   });
 
+  @override
+  State<DetailPage> createState() => _DetailPageState();
+}
+
+class _DetailPageState extends State<DetailPage> {
+  bool isClicked = false;
   @override
   Widget build(BuildContext context) {
     getUrl(Uri url) async {
@@ -27,13 +33,48 @@ class DetailPage extends StatelessWidget {
       }
     }
 
+    Future<void> showConfirm() async {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text('Konfirmasi'),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: const <Widget>[
+                  Text('Apakah kamu ingin menghubungi pemilik kos?'),
+                ],
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Batal'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                child: const Text('Hubungi'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  getUrl(
+                    Uri.parse("tel:+62${widget.space.phone}"),
+                  );
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+
     return Scaffold(
       backgroundColor: whiteColor,
       body: SafeArea(
         child: Stack(
           children: [
             Image.network(
-              space.imageUrl!,
+              widget.space.imageUrl!,
               width: deviceWidth(context),
               height: 350,
               fit: BoxFit.cover,
@@ -66,7 +107,7 @@ class DetailPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  space.name!,
+                                  widget.space.name!,
                                   style: blackTextStyle.copyWith(
                                     fontSize: 22,
                                     fontWeight: semiBold,
@@ -74,7 +115,7 @@ class DetailPage extends StatelessWidget {
                                 ),
                                 Text.rich(
                                   TextSpan(
-                                    text: '\$${space.price}',
+                                    text: '\$${widget.space.price}',
                                     style: purpleTextStyle.copyWith(
                                       fontSize: 16,
                                       fontWeight: semiBold,
@@ -253,13 +294,13 @@ class DetailPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              space.address!,
+                              widget.space.address!,
                               style: greyTextStyle.copyWith(),
                             ),
                             InkWell(
                               onTap: () {
                                 getUrl(
-                                  Uri.parse("${space.mapUrl}"),
+                                  Uri.parse("${widget.space.mapUrl}"),
                                 );
                               },
                               child: Image.asset(
@@ -287,9 +328,7 @@ class DetailPage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            getUrl(
-                              Uri.parse("tel:+62${space.phone}"),
-                            );
+                            showConfirm();
                           },
                           child: Text(
                             'Book Now',
@@ -317,46 +356,69 @@ class DetailPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(50),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.25),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset:
-                              const Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.arrow_back),
-                      color: purpleColor,
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.white,
+                  //     borderRadius: BorderRadius.circular(50),
+                  //     boxShadow: [
+                  //       BoxShadow(
+                  //         color: Colors.grey.withOpacity(0.25),
+                  //         spreadRadius: 5,
+                  //         blurRadius: 7,
+                  //         offset:
+                  //             const Offset(0, 3), // changes position of shadow
+                  //       ),
+                  //     ],
+                  //   ),
+                  //   child: IconButton(
+                  //     icon: const Icon(Icons.arrow_back),
+                  //     color: purpleColor,
+                  //     onPressed: () {
+                  //       Navigator.pop(context);
+                  //     },
+                  //   ),
+                  // ),
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.white,
+                  //     borderRadius: BorderRadius.circular(50),
+                  //     boxShadow: [
+                  //       BoxShadow(
+                  //         color: Colors.grey.withOpacity(0.25),
+                  //         spreadRadius: 5,
+                  //         blurRadius: 7,
+                  //         offset:
+                  //             const Offset(0, 3), // changes position of shadow
+                  //       ),
+                  //     ],
+                  //   ),
+                  //   child: IconButton(
+                  //     icon: const Icon(Icons.favorite),
+                  //     color: orangeColor,
+                  //     onPressed: () {},
+                  //   ),
+                  // ),
+
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Image.asset(
+                      'assets/btn_back.png',
+                      width: 40,
                     ),
                   ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(50),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.25),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset:
-                              const Offset(0, 3), // changes position of shadow
-                        ),
-                      ],
-                    ),
-                    child: IconButton(
-                      icon: const Icon(Icons.favorite),
-                      color: redColor,
-                      onPressed: () {},
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        isClicked = !isClicked;
+                      });
+                    },
+                    child: Image.asset(
+                      isClicked
+                          ? 'assets/btn_wishlist_true.png'
+                          : 'assets/btn_wishlist.png',
+                      width: 40,
                     ),
                   ),
                 ],

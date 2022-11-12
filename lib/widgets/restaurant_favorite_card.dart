@@ -14,25 +14,6 @@ class RestaurantFavoriteCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        // Navigator.of(context).push(
-        //   PageRouteBuilder(
-        //     pageBuilder: (context, animation, secondaryAnimation) =>
-        //         DetailPageRestaurant(
-        //       resto: restaurant,
-        //     ),
-        //     transitionsBuilder:
-        //         (context, animation, secondaryAnimation, child) {
-        //       final tween = Tween(
-        //         begin: const Offset(1, 0),
-        //         end: Offset.zero,
-        //       );
-        //       return SlideTransition(
-        //         position: animation.drive(tween),
-        //         child: child,
-        //       );
-        //     },
-        //   ),
-        // );
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -66,7 +47,7 @@ class RestaurantFavoriteCard extends StatelessWidget {
                 child: Container(
                   width: 130,
                   height: 110,
-                  color: purpleColor,
+                  color: whiteColor,
                   child: Stack(
                     children: [
                       Hero(

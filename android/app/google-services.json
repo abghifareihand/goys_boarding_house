@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "930246334289",
+    "project_id": "bwa-cozy-7ab9f",
+    "storage_bucket": "bwa-cozy-7ab9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930246334289:android:5f31164587460cb8852570",
+        "android_client_info": {
+          "package_name": "com.example.goys_boarding_house"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "930246334289-np0t8vkuu75tpq5uvic4ae9bm3nag1j6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgTZd9Jyr9v31fj895qje6LLE1KQJWdB4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "930246334289-np0t8vkuu75tpq5uvic4ae9bm3nag1j6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
